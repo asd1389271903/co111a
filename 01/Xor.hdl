@@ -4,8 +4,8 @@
 // File name: projects/01/Xor.hdl
 
 /**
- * Exclusive-or gate:
- * out = not (a == b)
+ * Exclusive-or gate:0011      1100
+ * out = not (a == b)1010 1101 0101 1011 0110
  */
 
 CHIP Xor {
@@ -14,4 +14,10 @@ CHIP Xor {
 
     PARTS:
     // Put your code here:
+    Nand(a=b,b=b,out=c);//b的相反
+    Nand(a=a,b=c,out=d);//1101
+    Nand(a=a,b=a,out=f);//a的相反
+    Nand(a=f,b=b,out=g);//1011
+    Nand(a=d,b=g,out=out);
 }
+//Nand 00 1 01 1 10 1 11 0
