@@ -19,3 +19,4 @@ CHIP Or {
     Nand(a=b,b=b,out=d);
     Nand(a=c,b=d,out=out);
 }
+//001 011 101 110
