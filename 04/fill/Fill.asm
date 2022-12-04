@@ -12,3 +12,45 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+//24576=keyboard 16384~24575=screen p.57有迴圈條件說明
+(LOOP)
+@8191
+D = A
+@i
+M = D //當作計數器 
+@24576
+D=M
+@BLACK
+D;JNE
+@WHITE
+D;JEQ
+@LOOP
+0;JMP
+
+(BLACK)
+@i
+D = M 
+@16384
+A = A + D
+M = -1
+@i
+M = M - 1
+D = M
+@BLACK
+D;JGE
+@LOOP
+D;JLT
+
+(WHITE)
+@i
+D = M 
+@16384
+A = A + D
+M = 0
+@i
+M = M - 1
+D = M
+@WHITE
+D;JGE
+@LOOP
+D;JLT
